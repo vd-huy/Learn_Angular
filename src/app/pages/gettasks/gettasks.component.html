@@ -1,0 +1,41 @@
+<nz-table #basicTable [nzData]="listOfData" ngSkipHydration
+    [nzPageSize]="4">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Người tạo</th>
+            <th>Nội dung công việc</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ data.nameUser }}</td>
+            <td class="content">{{ data.name }}</td>
+            <td *ngIf="data.isDone,else taskStatus">
+                Hoàn thành
+            </td>
+            <ng-template #taskStatus>
+                <td>Chưa Hoàn Thành</td>
+            </ng-template>
+            <td>
+                <button class="btn btnDelete"
+                    (click)="handleClickDelete(data.id)">Delete
+                </button>
+                <button class="btn btnUpdate"
+                    (click)="handleUpdate(data.id)">Update</button>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Modal Title"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading">
+    <p *nzModalContent>Bạn có chắc chắn muốn xóa không ?</p>
+</nz-modal>

@@ -1,0 +1,45 @@
+<form
+    [formGroup]="taskFormUpdate"
+    nz-form
+    [nzLayout]="'horizontal'"
+    (submit)="onSubmit()">
+    <nz-form-item>
+        <nz-form-label>Form
+            Layout</nz-form-label>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>Id Task:</nz-form-label>
+        <nz-form-control>
+            <input nz-input formControlName="idTask" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>Name User:</nz-form-label>
+        <nz-form-control
+            nzErrorTip="Please input your username!">
+            <input nz-input formControlName="nameUser"
+                placeholder="Enter your Name" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>Name Task:</nz-form-label>
+        <nz-form-control
+            nzErrorTip="Please input your name task!">
+            <input nz-input formControlName="name"
+                placeholder="Enter Your Name Task" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>Status Task:</nz-form-label>
+        <nz-form-control>
+            <select formControlName="isDone">
+                <option value="false">Chưa hoàn thành</option>
+                <option value="true">Đã hoàn thành</option>
+            </select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-control>
+        <button nz-button nzType="primary">Update Task</button>
+    </nz-form-control>
+</form>
