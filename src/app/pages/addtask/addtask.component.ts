@@ -21,6 +21,16 @@ export class AddtaskComponent {
     })
   }
 
+  validateField():boolean{
+
+    if (this.taskForm.get("nameUser").value.trim() === "" || this.taskForm.get("name").value.trim() === "" ) {
+      return false
+    }else{
+      return true
+    }
+
+  }
+
 
 
   onSubmit() : void{
@@ -31,15 +41,19 @@ export class AddtaskComponent {
        isDone : this.taskForm.get("isDone").value
       }
      
-    this.taskService.addTask(dataTask).subscribe((res) => {
-      if (res.success) {
-      this.taskForm.reset();
-       alert("Thêm thành công")
-       } else{
-          alert("Vui lòng nhập dữ liệu")
-       }
-     
-    })
+    if (this.validateField()) {
+      this.taskService.addTask(dataTask).subscribe((res) => {
+        if (res.success) {
+        this.taskForm.reset();
+         alert("Thêm thành công")
+         } else{
+            alert("Vui lòng nhập dữ liệu")
+         }
+       
+      })
+    }else{
+      alert("Vui lòng nhập đủ thông tin");
+    }
 
      
  
