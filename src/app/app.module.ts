@@ -23,7 +23,6 @@ import { NzFormControlComponent, NzFormModule } from 'ng-zorro-antd/form';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
-
 registerLocaleData(en);
 
 @NgModule({
@@ -47,6 +46,9 @@ registerLocaleData(en);
     NzFormModule,
     NzModalModule,
     NzPaginationModule,
+
+  
+    
 
   ],
   providers: [

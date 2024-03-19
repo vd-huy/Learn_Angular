@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: "addtask" , component: AddtaskComponent},
   {path: "updatetask" , component: UpdatetaskComponent},
   {path: "gettasks" , component: GettasksComponent},
+  {path: "**" , redirectTo:"gettasks"},
 ];
 
 @NgModule({
